@@ -1,13 +1,14 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
-import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
-import {RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
-import {HeroDetailComponent} from './hero-detail.component';
-import {HeroService} from './hero.service';
-import {HeroesComponent} from './heroes.component';
-import {DashboardComponent} from './dashboard.component';
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard.component';
+import { HeroDetailComponent } from './hero-detail.component';
+import { HeroesComponent } from './heroes.component';
+import { HeroService } from './hero.service';
+
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -20,25 +21,7 @@ import {DashboardComponent} from './dashboard.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: 'heroesList',
-        component: HeroesComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'detail/:id',
-        component: HeroDetailComponent
-      },
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-    ])
+    AppRoutingModule,
   ],
   providers: [
     HeroService
